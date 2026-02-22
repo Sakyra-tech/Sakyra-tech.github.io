@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Meta Tags & SEO Optimization -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mitra Store - Toko Kelontong terlengkap, termurah, dan terpercaya. Menyediakan kebutuhan sehari-hari, sembako, kebutuhan rumah tangga, serta layanan fotocopy dan ATK.">
+    <meta name="keywords" content="Toko Kelontong Mitra Store, sembako murah, fotocopy adiwerna, ATK lengkap, toko grosir lokal, belanja kebutuhan harian, toko terdekat">
+    <meta name="author" content="Mitra Store">
+    <title>Mitra Store | Toko Kelontong, Fotocopy & ATK</title>
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="Mitra Store | Toko Kelontong Lengkap & Terjangkau">
+    <meta property="og:description" content="Belanja kebutuhan harian lebih mudah dan lengkap di Mitra Store. Harga terjangkau, barang selalu segar, serta melayani fotocopy dan penyediaan ATK.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mitrastore.contoh.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1200&q=80">
+
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f43f5e',     /* Rose-500 */
+                        primaryDark: '#e11d48', /* Rose-600 */
+                        primaryLight: '#ffe4e6',/* Rose-100 */
+                        secondary: '#fbbf24',   /* Amber-400 */
+                        secondaryDark: '#f59e0b',/* Amber-500 */
+                        neutralBg: '#fafafa',   /* Neutral-50 */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Mobile tap highlight reset */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f43f5e; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e11d48; 
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image hover zoom */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Floating WhatsApp Button Animation */
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .fab-whatsapp {
+            animation: bounce-subtle 3s infinite ease-in-out;
+        }
+
+        /* Responsive map container */
+        .map-responsive {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .map-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Skeleton Loading Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-neutralBg text-gray-800 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-store text-lg"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">Mitra<span class="text-primary">Store</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#beranda" class="text-gray-600 hover:text-primary font-medium transition-colors">Beranda</a>
+                    <a href="#katalog" class="text-gray-600 hover:text-primary font-medium transition-colors">Katalog</a>
+                    <a href="#galeri" class="text-gray-600 hover:text-primary font-medium transition-colors">Galeri</a>
+                    <a href="#lokasi" class="text-gray-600 hover:text-primary font-medium transition-colors">Lokasi</a>
+                    <a href="https://wa.me/6285600802590" target="_blank" class="bg-primary hover:bg-primaryDark text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi Kami
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#beranda" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primaryLight rounded-md transition-colors mobile-link">Beranda</a>
+                <a href="#katalog" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primaryLight rounded-md transition-colors mobile-link">Katalog</a>
+                <a href="#galeri" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primaryLight rounded-md transition-colors mobile-link">Galeri</a>
+                <a href="#lokasi" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primaryLight rounded-md transition-colors mobile-link">Lokasi</a>
+                <a href="https://wa.me/6285600802590" target="_blank" class="mt-4 block w-full text-center bg-primary text-white px-5 py-3 rounded-md font-medium shadow-md">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden relative">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-secondary opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary opacity-10 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="reveal">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-secondary/20 text-secondaryDark font-semibold text-sm mb-6 border border-secondary/30">
+                        <i class="fa-solid fa-star mr-1"></i> Toko Pilihan Keluarga
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                        Penuhi Kebutuhan <br>
+                        Harian Anda di <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondaryDark">Mitra Store</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        Menyediakan sembako, makanan ringan, kebutuhan rumah tangga, hingga layanan fotocopy dan ATK dengan harga terjangkau dan pelayanan yang ramah.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#katalog" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3.5 rounded-lg font-semibold transition-all shadow-md text-center">
+                            Lihat Katalog
+                        </a>
+                        <a href="https://wa.me/6285600802590" target="_blank" class="bg-white border-2 border-primary text-primary hover:bg-primaryLight px-8 py-3.5 rounded-lg font-semibold transition-all shadow-sm flex justify-center items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Hubungi via WhatsApp
+                        </a>
+                    </div>
+                    
+                    <!-- Quick Stats dengan Animasi Angka -->
+                    <div class="mt-10 flex items-center gap-8 border-t border-gray-200 pt-6">
+                        <div>
+                            <p class="text-3xl font-bold text-gray-900"><span id="produk-tersedia" data-target="500">0</span><span class="counter-suffix">+</span></p>
+                            <p class="text-sm text-gray-500 font-medium">Produk Tersedia</p>
+                        </div>
+                        <div class="w-px h-10 bg-gray-200"></div>
+                        <div>
+                            <p class="text-3xl font-bold text-gray-900"><span id="harga-terbaik" data-target="100">0</span><span class="counter-suffix">%</span></p>
+                            <p class="text-sm text-gray-500 font-medium">Harga Terbaik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative reveal">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-2xl transform rotate-3 scale-105"></div>
+                    <img src="https://i.ibb.co.com/4Zvwrvny/Whats-App-Image-2026-02-22-at-10-19-48-1.jpg" alt="Sayuran dan buah segar di toko" class="relative rounded-2xl shadow-2xl object-cover h-[400px] md:h-[500px] w-full border-4 border-white">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fa-solid fa-check text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Barang Selalu Segar</p>
+                            <p class="text-xs text-gray-500">Kualitas Terjamin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Features Section -->
+    <section class="py-12 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="flex items-start gap-4 p-4 reveal">
+                    <div class="w-14 h-14 rounded-full bg-primaryLight flex items-center justify-center text-primary flex-shrink-0">
+                        <i class="fa-solid fa-boxes-stacked text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Produk Lengkap</h3>
+                        <p class="text-gray-600 text-sm">Semua kebutuhan rumah tangga Anda tersedia di satu tempat.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="flex items-start gap-4 p-4 reveal">
+                    <div class="w-14 h-14 rounded-full bg-secondary/20 flex items-center justify-center text-secondaryDark flex-shrink-0">
+                        <i class="fa-solid fa-wallet text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Harga Terjangkau</h3>
+                        <p class="text-gray-600 text-sm">Belanja hemat dengan harga kompetitif untuk semua produk.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 (Updated to Fotocopy) -->
+                <div class="flex items-start gap-4 p-4 reveal">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                        <i class="fa-solid fa-print text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Layanan Fotocopy</h3>
+                        <p class="text-gray-600 text-sm">Melayani jasa fotocopy, print dokumen, dan ketersediaan berbagai ATK.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="katalog" class="py-20 bg-neutralBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary font-semibold tracking-wider text-sm uppercase">Pilihan Produk</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Katalog Kategori Mitra Store</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Category 1 -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 img-hover-zoom reveal group cursor-pointer">
+                    <div class="h-48 overflow-hidden rounded-t-2xl relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://space-kd.sgp1.cdn.digitaloceanspaces.com/pusaranmedia/lg/news-lg-1623216358.png" alt="Sembako" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-12 h-12 mx-auto bg-primaryLight text-primary rounded-full flex items-center justify-center -mt-12 relative z-20 mb-4 border-4 border-white">
+                            <i class="fa-solid fa-bowl-rice"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Sembako & Beras</h3>
+                        <p class="text-sm text-gray-500">Beras, minyak, gula, telur, dan kebutuhan pokok lainnya.</p>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 img-hover-zoom reveal group cursor-pointer" style="transition-delay: 100ms;">
+                    <div class="h-48 overflow-hidden rounded-t-2xl relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cemilan" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-12 h-12 mx-auto bg-secondary/30 text-secondaryDark rounded-full flex items-center justify-center -mt-12 relative z-20 mb-4 border-4 border-white">
+                            <i class="fa-solid fa-cookie-bite"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Cemilan & Minuman</h3>
+                        <p class="text-sm text-gray-500">Berbagai macam snack ringan, biskuit, kopi, dan teh.</p>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 img-hover-zoom reveal group cursor-pointer" style="transition-delay: 200ms;">
+                    <div class="h-48 overflow-hidden rounded-t-2xl relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://down-id.img.susercontent.com/file/934e301f7b6c0d35ec89bbfb6399a38f" alt="Kebutuhan Mandi" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-100 text-blue-500 rounded-full flex items-center justify-center -mt-12 relative z-20 mb-4 border-4 border-white">
+                            <i class="fa-solid fa-pump-soap"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Perlengkapan Mandi</h3>
+                        <p class="text-sm text-gray-500">Sabun, sampo, pasta gigi, deterjen, dan pembersih lantai.</p>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 img-hover-zoom reveal group cursor-pointer" style="transition-delay: 300ms;">
+                    <div class="h-48 overflow-hidden rounded-t-2xl relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://cf.shopee.co.id/file/id-11134207-7rasf-m1gxgayjhs5r03" alt="Bumbu Dapur" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-12 h-12 mx-auto bg-green-100 text-green-600 rounded-full flex items-center justify-center -mt-12 relative z-20 mb-4 border-4 border-white">
+                            <i class="fa-solid fa-pepper-hot"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Bumbu Dapur</h3>
+                        <p class="text-sm text-gray-500">Bawang, cabai, penyedap rasa, saus, dan kecap lengkap.</p>
+                    </div>
+                </div>
+
+                <!-- Category 5 (New: Fotocopy) -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 img-hover-zoom reveal group cursor-pointer" style="transition-delay: 400ms;">
+                    <div class="h-48 overflow-hidden rounded-t-2xl relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://sindangsari-pabuaran.desa.id/wp-content/uploads/2024/10/alat-tulis-4-1.jpg" alt="Fotocopy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-12 h-12 mx-auto bg-gray-100 text-gray-700 rounded-full flex items-center justify-center -mt-12 relative z-20 mb-4 border-4 border-white">
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Fotocopy & Print</h3>
+                        <p class="text-sm text-gray-500">Jasa fotocopy, print dokumen, scan, dan penjilidan.</p>
+                    </div>
+                </div>
+
+                <!-- Category 6 (New: ATK) -->
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 img-hover-zoom reveal group cursor-pointer" style="transition-delay: 500ms;">
+                    <div class="h-48 overflow-hidden rounded-t-2xl relative">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://gpriority.co.id/wp-content/uploads/2025/01/43245052045423.jpg" alt="ATK" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="w-12 h-12 mx-auto bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center -mt-12 relative z-20 mb-4 border-4 border-white">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">ATK (Alat Tulis Kantor)</h3>
+                        <p class="text-sm text-gray-500">Buku tulis, pulpen, pensil, map, dan alat tulis lainnya.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center reveal">
+                <p class="text-gray-600 mb-4">Mencari produk lain? Tanyakan langsung ketersediaannya kepada kami.</p>
+                <a href="https://wa.me/6285600802590" target="_blank" class="inline-flex items-center text-primary font-bold hover:text-primaryDark transition-colors">
+                    Tanya via WhatsApp <i class="fa-solid fa-arrow-right ml-2 mt-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div>
+                    <span class="text-primary font-semibold tracking-wider text-sm uppercase">Suasana Toko</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Galeri Mitra Store</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-600 text-sm max-w-sm md:text-right">Kenyamanan dan kerapian penyusunan barang menjadi prioritas kami agar Anda mudah mencari kebutuhan harian.</p>
+                </div>
+            </div>
+
+            <!-- Masonry-like Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="col-span-2 row-span-2 rounded-xl overflow-hidden img-hover-zoom reveal">
+                    <img src="https://i.ibb.co.com/DHV80qvf/Whats-App-Image-2026-02-22-at-10-19-48.jpg" alt="Tampak dalam toko" class="w-full h-full object-cover">
+                </div>
+                <div class="rounded-xl overflow-hidden img-hover-zoom reveal" style="transition-delay: 100ms;">
+                    <img src="https://i.ibb.co.com/pv5QQXMc/Whats-App-Image-2026-02-22-at-10-19-47-2.jpg" alt="Rak rapi" class="w-full h-full object-cover">
+                </div>
+                <div class="rounded-xl overflow-hidden img-hover-zoom reveal" style="transition-delay: 200ms;">
+                    <img src="https://i.ibb.co.com/dJDJKQYZ/Whats-App-Image-2026-02-22-at-10-19-47.jpg" alt="Produk segar" class="w-full h-full object-cover">
+                </div>
+                <div class="col-span-2 rounded-xl overflow-hidden img-hover-zoom reveal" style="transition-delay: 300ms;">
+                    <img src="https://i.ibb.co.com/B2p10rCQ/Whats-App-Image-2026-02-22-at-10-19-47-1.jpg" alt="Buah dan sayur" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Business Hours Section -->
+    <section id="lokasi" class="py-20 bg-neutralBg border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    
+                    <!-- Information Side -->
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <span class="text-primary font-semibold tracking-wider text-sm uppercase mb-2">Kunjungi Kami</span>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Lokasi & Jam Operasional</h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Address -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-primaryLight flex items-center justify-center text-primary flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">Alamat Toko</h4>
+                                    <p class="text-gray-600 mt-1">Jl. Raya Singkil No.3, Kb. Baru, Adiwerna,<br>Kec. Adiwerna, Kabupaten Tegal, Jawa Tengah 52194</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Hours -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondaryDark flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div class="w-full">
+                                    <h4 class="font-bold text-gray-900 text-lg">Jam Operasional</h4>
+                                    
+                                    <!-- Dynamic Status Container -->
+                                    <div id="store-status" class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-sm font-semibold mt-2 mb-3">
+                                        <i class="fa-solid fa-circle-notch fa-spin text-xs mr-2"></i> Memuat Status...
+                                    </div>
+                                    
+                                    <ul class="text-gray-600 space-y-2 w-full max-w-xs">
+                                        <li class="flex justify-between border-b border-gray-100 pb-1">
+                                            <span>Senin - Jumat</span>
+                                            <span class="font-medium">07:00 - 21:00</span>
+                                        </li>
+                                        <li class="flex justify-between border-b border-gray-100 pb-1">
+                                            <span>Sabtu</span>
+                                            <span class="font-medium">07:00 - 22:00</span>
+                                        </li>
+                                        <li class="flex justify-between text-red-500 font-semibold">
+                                            <span>Minggu</span>
+                                            <span>Libur / Tutup</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.app.goo.gl/5HYzLwNtV3nA56Ea7" target="_blank" class="mt-8 inline-block bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center w-full sm:w-auto">
+                            Buka di Google Maps
+                        </a>
+                    </div>
+
+                    <!-- Map Side - Responsive Embed -->
+                    <div class="map-responsive">
+                        <iframe src="https://maps.google.com/maps?width=600&height=600&hl=en&q=MITRAshop%20adherobby&t=&z=14&ie=UTF8&iwloc=B&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                            <i class="fa-solid fa-store text-lg"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight text-white">Mitra<span class="text-primary">Store</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Toko kelontong pilihan keluarga di Adiwerna. Kami selalu berusaha memberikan pelayanan terbaik dan produk berkualitas dengan harga yang bersahabat untuk memenuhi kebutuhan harian Anda.
+                    </p>
+                    <!-- Social media buttons dihapus sesuai permintaan -->
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#beranda" class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i> Beranda</a></li>
+                        <li><a href="#katalog" class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i> Katalog Produk</a></li>
+                        <li><a href="#galeri" class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i> Galeri Toko</a></li>
+                        <li><a href="#lokasi" class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i class="fa-solid fa-chevron-right text-xs mr-2"></i> Lokasi Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Kontak</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-gray-400 gap-3">
+                            <i class="fa-solid fa-map-location-dot mt-1 text-primary"></i>
+                            <span>Jl. Raya Singkil No.3, Kb. Baru, Adiwerna, Tegal, Jawa Tengah</span>
+                        </li>
+                        <li class="flex items-center text-sm text-gray-400 gap-3">
+                            <i class="fa-brands fa-whatsapp text-primary text-lg"></i>
+                            <span>+62 856-0080-2590</span>
+                        </li>
+                        <li class="flex items-center text-sm text-gray-400 gap-3">
+                            <i class="fa-regular fa-envelope text-primary"></i>
+                            <span>kyrasareba@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Mitra Store. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Dibuat dengan <i class="fa-solid fa-heart text-primary mx-1"></i> untuk Warga Sekitar</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285600802590?text=Halo%20Mitra%20Store,%20saya%20ingin%20bertanya%20tentang%20produk..." 
+       target="_blank" 
+       class="fab-whatsapp fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe57] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+       aria-label="Chat WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                menu.classList.toggle('hidden');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+
+            // Close mobile menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!menu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // 2. Sticky Navbar Styling on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-md');
+                    navbar.classList.replace('bg-white/90', 'bg-white/95');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                    navbar.classList.replace('bg-white/95', 'bg-white/90');
+                }
+            });
+
+            // 3. Scroll Reveal Animation via IntersectionObserver
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+            // 4. Dynamic Store Status (Open/Closed) based on WIB Time
+            function checkStoreStatus() {
+                const now = new Date();
+                const day = now.getDay(); // 0 is Sunday, 1 is Monday...
+                const hour = now.getHours(); 
+                
+                const statusEl = document.getElementById('store-status');
+                let isOpen = false;
+
+                // Logic based on defined hours:
+                // Mon-Fri: 07-21, Sat: 07-22, Sun: Closed (Libur)
+                if (day >= 1 && day <= 5) { // Mon-Fri
+                    if (hour >= 7 && hour < 21) isOpen = true;
+                } else if (day === 6) { // Sat
+                    if (hour >= 7 && hour < 22) isOpen = true;
+                } else if (day === 0) { // Sun
+                    isOpen = false; // Selalu tutup di hari Minggu
+                }
+
+                // Update UI Element
+                if (isOpen) {
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle text-green-500 text-xs mr-2 animate-pulse"></i> Buka Sekarang';
+                    statusEl.className = 'inline-flex items-center px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold mt-2 mb-3 border border-green-200';
+                } else {
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle text-red-500 text-xs mr-2"></i> Tutup Sekarang';
+                    statusEl.className = 'inline-flex items-center px-4 py-1.5 rounded-full bg-red-100 text-red-700 text-sm font-semibold mt-2 mb-3 border border-red-200';
+                }
+            }
+
+            // Run status check immediately and then every minute
+            checkStoreStatus();
+            setInterval(checkStoreStatus, 60000);
+
+            // 5. Animasi Counter untuk statistik (Produk Tersedia dan Harga Terbaik)
+            const counterElements = [
+                { element: document.getElementById('produk-tersedia'), target: 500, suffix: '+' },
+                { element: document.getElementById('harga-terbaik'), target: 100, suffix: '%' }
+            ];
+
+            // Set initial values
+            counterElements.forEach(counter => {
+                counter.element.innerText = '0';
+            });
+
+            // Function to animate counter
+            function animateCounter(counter, target, suffix) {
+                let current = 0;
+                const increment = target / 50; // naik dalam 50 langkah
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.floor(current);
+                    }
+                }, 20); // update setiap 20ms => total durasi ~1 detik
+            }
+
+            // Observer untuk memulai animasi saat elemen terlihat
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.id;
+                        const counterData = counterElements.find(c => c.element.id === targetId);
+                        if (counterData) {
+                            animateCounter(counterData.element, counterData.target, counterData.suffix);
+                            counterObserver.unobserve(entry.target); // hanya sekali
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counterElements.forEach(counter => {
+                if (counter.element) {
+                    counterObserver.observe(counter.element);
+                }
+            });
+
+            // 6. Skeleton Loading untuk semua gambar
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // Tambahkan class skeleton
+                img.classList.add('skeleton');
+                
+                // Jika gambar sudah dimuat sebelumnya, segera hapus skeleton
+                if (img.complete) {
+                    img.classList.remove('skeleton');
+                } else {
+                    // Jika belum, tunggu event load
+                    img.addEventListener('load', () => {
+                        img.classList.remove('skeleton');
+                    });
+                    // Opsional: tangani error agar skeleton tetap hilang meskipun gambar gagal dimuat
+                    img.addEventListener('error', () => {
+                        img.classList.remove('skeleton');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
